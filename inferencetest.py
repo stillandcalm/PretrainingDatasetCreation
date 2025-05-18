@@ -11,7 +11,7 @@ model = LlamaForCausalLM.from_pretrained(model_path, torch_dtype=torch.bfloat16,
 model.eval()
 
 # Prompt
-prompt = "Q: What are the benefits of Zero Trust security?\nA:"
+prompt = "Q: What does Cisco Secure Access provides?\nA:"
 
 # Tokenize input
 inputs = tokenizer(prompt, return_tensors="pt").to(model.device)

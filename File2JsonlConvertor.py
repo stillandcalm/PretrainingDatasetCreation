@@ -8,12 +8,12 @@ import fitz  # from pymupdf
 import re
 
 # CONFIGURATION
-input_dir = "/directory-path-to-files/"
+input_dir = "/Users/datafiles/"
 jsonl_output_dir = "jsonl_chunks"
 text_output_dir = "text_chunks"
 tokenizer_name = "meta-llama/Meta-Llama-3-8B"
 max_seq_length = 2048
-samples_per_file = 100
+samples_per_file = 50
 
 # Check for tokenizer availability
 try:

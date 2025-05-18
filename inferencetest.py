@@ -6,7 +6,13 @@ model_path = "llama3-8b-output"
 
 # Load model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=True)
-model = LlamaForCausalLM.from_pretrained(model_path, torch_dtype=torch.bfloat16, device_map="auto")
+#model = LlamaForCausalLM.from_pretrained(model_path, torch_dtype=torch.bfloat16, device_map="auto")
+
+model = LlamaForCausalLM.from_pretrained(
+    "llama3-8b-output",
+    torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+    device_map="auto"
+)
 
 model.eval()
 

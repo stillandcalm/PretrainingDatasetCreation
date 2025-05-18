@@ -7,7 +7,7 @@ from pdfminer.high_level import extract_text as extract_pdf_text
 import textract
 
 # CONFIGURATION
-input_dir = "/Users/prabhat7/Desktop/samples"
+input_dir = "/Users/username/samples"
 jsonl_output_dir = "jsonl_chunks"
 text_output_dir = "text_chunks"
 tokenizer_name = "meta-llama/Meta-Llama-3-8B"

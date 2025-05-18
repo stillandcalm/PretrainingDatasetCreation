@@ -10,7 +10,7 @@ from transformers import (
 
 # CONFIGURATION
 model_name = "meta-llama/Meta-Llama-3-8B"
-dataset_dir = "jsonl_chunks"
+dataset_dir = "/root/PretrainingDatasetCreation"
 output_dir = "llama3-8b-output"
 max_seq_length = 2048
 
@@ -44,7 +44,7 @@ training_args = TrainingArguments(
     overwrite_output_dir=True,
     per_device_train_batch_size=2,
     gradient_accumulation_steps=4,
-    num_train_epochs=3,
+    max_steps=20,
     learning_rate=2e-5,
     bf16=True,
     logging_steps=10,
@@ -65,4 +65,7 @@ trainer = Trainer(
 # Start training
 print("🚀 Starting streaming training...")
 trainer.train()
+trainer.save_model(output_dir)
+tokenizer.save_pretrained(output_dir)
+
 print("✅ Streaming training complete. Model saved to:", output_dir)
